@@ -1,0 +1,10 @@
+<div class="booyah-box col-10 offset-1">
+<h1>Enter details about a restaurant</h1>
+  <%= simple_form_for @place do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <br />
+    <%= f.submit 'Create', class: 'btn btn-primary' %>
+  <% end %>
+</div>
