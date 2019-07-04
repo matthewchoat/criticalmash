@@ -45,12 +45,15 @@
 
 <div class="clear"></div>
 
+<div class="col-10 offset-1">
+  <h1 class="float-left">Comments</h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+    Add a comment
+  </button>
+</div>
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a comment
-</button>
+<div class="clear"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -76,10 +79,9 @@
   </div>
 </div>
 
-<h1>Comments</h1>
-
+<div class="row">
 <% @place.comments.each do |comment| %>
-  <div>
+  <div class="col-12 col-sm-6">
     <blockquote>
       <% if comment.humanized_rating.present? %>
         <b><%= comment.humanized_rating %></b> -
@@ -88,4 +90,5 @@
       <small><%= comment.user.email %></small>
     </blockquote>
   </div>
-<% end %>
+  <% end %>
+</div>
