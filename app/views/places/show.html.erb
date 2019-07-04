@@ -25,7 +25,7 @@
   </script>
 
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFphWgsjBowjRtLEEricfekb_WKDWhf4s&callback=initMap">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrna33e7JSVhPIpcCTKXJHVPxVOVRaC78&callback=initMap">
   </script>
 
     <div id="map"></div>
@@ -45,8 +45,20 @@
 
 <div class="clear"></div>
 
-<%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
+<%= simple_form_for @comment, url: place_comments_path(@place) do |f| %> 
   <%= f.input :message %>
   <%= f.input :rating %>
   <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+<% end %>
+
+<h1>Comments</h1>
+
+<% @place.comments.each do |comment| %>
+  <div>
+    <blockquote>
+      <b><%= comment.rating %></b> -
+        <%= comment.message %>
+      <small><%= comment.user.email %></small>
+    </blockquote>
+  </div>
 <% end %>
