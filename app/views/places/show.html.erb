@@ -47,7 +47,7 @@
 
 <div class="col-10 offset-1">
   <h1 class="float-left">Comments</h1>
-  <!-- Button trigger modal -->
+  <!-- Comment Button trigger modal -->
   <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
     Add a comment
   </button>
@@ -93,3 +93,46 @@
   <% end %>
 </div>
 
+<h1 class="float-left">Photos</h1>
+
+<div class="col-10 offset-1">
+<!-- Photo Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal1">
+  Add a Photo
+</button>
+</div>
+
+<div class="clear"></div>
+<!-- Photo Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Upload a photo</h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+          <%= f.input :caption %>
+          <%= f.input :picture %>
+          <%= f.submit "Upload a photo", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="row">
+<% @place.photos.each do |photo| %>
+    <div class="col-12 col-sm-6">
+      <%= image_tag photo.picture.url %>
+      <%= photo.caption %>
+  </div>
+<% end %>
+</div>
