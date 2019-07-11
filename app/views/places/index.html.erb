@@ -20,11 +20,11 @@
     </div>
   <%end %>
 
-<% if place.photos.present? %>
+<% if place.photos.last.present? %>
     <div class="img-thumbnail">
       <% place.photos.each do |photo| %>
       <%= image_tag photo.picture.url %>
-      <%= photo.caption %>
+       <small><%= photo.caption %></small>
         </div>
       <% end %>
     <% end %>
