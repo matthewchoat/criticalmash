@@ -68,3 +68,8 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+
+.photoshow img {
+  max-width: 200px;
+  max-height: 200px
+}

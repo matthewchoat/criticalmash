@@ -20,16 +20,15 @@
     </div>
   <%end %>
 
-<% if place.photos.last.present? %>
-    <div class="img-thumbnail">
-      <% place.photos.each do |photo| %>
-      <%= image_tag photo.picture.url %>
-       <small><%= photo.caption %></small>
+
+    <div class="photoshow img-thumbnail" style= "max-width: 200px; max-height: 200px">
+
+    <% if place.photos.last.picture.url %>
+      <%= image_tag place.photos.last.picture.url %>
+       <small><%= place.photos.last.caption %></small>
         </div>
       <% end %>
     <% end %>
-    
   </div>
-<% end %>
 
 <%== pagy_bootstrap_nav(@pagy) %>

@@ -130,13 +130,16 @@
   </div>
 </div>
 
-
+<% if @place.photos.length != 0 %>
   <div class="row">
 <% @place.photos.each do |photo| %>
-    <div class="col-12 col-sm-6">
+<% if photo.picture.url %>
+    <div class="photoshow col-12 col-sm-6">
       <%= image_tag photo.picture.url %>
       <%= photo.caption %>
   </div>
+  <% end %>
+  <% end %>
 <% end %>
 </div>
 </div>
