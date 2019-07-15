@@ -84,7 +84,7 @@
     </div>
   <%end %>
 
-
+<% if place.photos.present? %>
     <div class="photoshow img-thumbnail" style= "max-width: 200px; max-height: 200px">
 
     <% if place.photos.last.picture.url %>
@@ -93,6 +93,8 @@
         </div>
       <% end %>
     <% end %>
+    <% end %>
+
   </div>
 
 <%== pagy_bootstrap_nav(@pagy) %>
