@@ -30,3 +30,44 @@
   </div>
   <% end %>
 </div>
+
+<div class="clear"></div>
+
+<br /><br />
+<h2 class="text-center">My Places</h2>
+<br /><br />
+
+<% @user.places.each do |place| %>
+  <div class="booyah-box col-10 offset-1">
+    <h1><%= link_to place.name, place_path(place) %></h1><br />
+    <i><%= place.address %></i><br />
+    <p><%= place.description %></p><br />
+
+    <% if place.user.present? %>
+      <small><%= place.user.email %></small>
+    <% end %>
+
+    <% if place.comments.present? %>
+      <div class="col-12">
+        <blockquote>
+          <% if place.comments.last.humanized_rating.present? %>
+            <b><%= place.comments.last.humanized_rating %></b> -
+          <% end %>
+          <%= place.comments.last.message %>
+          <small><%= place.comments.last.user.email %></small>
+        </blockquote>
+      </div>
+
+    <% end %>
+    <% if place.photos.present? %>
+    <div class="photoshow img-thumbnail" style= "max-width: 200px; max-height: 200px">
+
+    <% if place.photos.last.picture.url %>
+      <%= image_tag place.photos.last.picture.url %>
+       <small><%= place.photos.last.caption %></small>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  </div>
+<% end %>
