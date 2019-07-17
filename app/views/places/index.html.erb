@@ -76,9 +76,9 @@
     <div class="col-12">
       <blockquote>
         <% if place.comments.last.humanized_rating.present? %>
-          <b><%= place.comments.last.humanized_rating %></b> -
+          <b><%= place.comments.last.humanized_rating %></b> —
       <% end %>
-      <%= place.comments.last.message %>
+      <%= place.comments.last.message %> —
       <small><%= place.comments.last.user.email %></small>
       </blockquote>
     </div>
@@ -95,8 +95,9 @@
     </div>
 
     <% end %>
+    </div>
     <% end %>
 
   </div>
-
+</div>
 <%== pagy_bootstrap_nav(@pagy) %>
