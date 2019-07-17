@@ -85,13 +85,15 @@
   <%end %>
 
 <% if place.photos.present? %>
-    <div class="photoshow img-thumbnail" style= "max-width: 200px; max-height: 200px">
+    <div class="photothumb img-thumbnail">
 
     <% if place.photos.last.picture.url %>
       <%= image_tag place.photos.last.picture.url %>
        <small><%= place.photos.last.caption %></small>
         </div>
       <% end %>
+    </div>
+
     <% end %>
     <% end %>
 

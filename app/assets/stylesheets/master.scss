@@ -72,6 +72,11 @@ blockquote p {
 }
 
 .photoshow img {
+  max-width: 400px;
+  max-height: 400px
+}
+
+.photothumb img {
   max-width: 200px;
   max-height: 200px
 }
